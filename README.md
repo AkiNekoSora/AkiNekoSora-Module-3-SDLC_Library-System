@@ -1,6 +1,9 @@
-// Autumn Skye
-// CEN-3024C 13950
-// September 3rd, 2025
+Module 3 | SDLC Assignment Part 2
+=================================
+
+Autumn Skye
+CEN-3024C 13950
+September 3rd, 2025
 
 The object of this project is to help a "local library" that allows their users to
 add patrons using the Command Line Interface or a txt document or remove patrons,
