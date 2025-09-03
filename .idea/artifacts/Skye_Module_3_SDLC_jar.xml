@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Skye_Module 3 SDLC:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Skye_Module_3_SDLC_jar</output-path>
+    <root id="archive" name="Skye_Module 3 SDLC.jar">
+      <element id="module-output" name="Skye_Module 3 SDLC" />
+    </root>
+  </artifact>
+</component>
