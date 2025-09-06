@@ -21,8 +21,8 @@ public class Patrons {
     static Scanner scnr = new Scanner(System.in);
 
     //Patron Variables
-    private static int nextID = 10000; //Random number after the initials
-    private String patronID; //Combines the first 2 initials of the patrons and adds an incremental number after.
+    private static int nextID = 1000000; //Incremented number
+    private int patronID; // Used the incremental number nextID.
     private String patronFName;
     private String patronLName;
     private String patronStreetAddress;
@@ -41,15 +41,12 @@ public class Patrons {
         this.patronState = state;
         this.patronZipCode = zipCode;
         this.patronOverdueFine = 0.00;
-        // This is used to auto generate the ID using the Initials and counting up the
-        // "nextID" int above.
-        this.patronID = String.valueOf(patronFName.charAt(0)) +
-                        String.valueOf(patronLName.charAt(0)) +
-                        nextID++;
+        // This is used to auto increment the "nextID" int above.
+        this.patronID = nextID++;
     }
 
     //Getters!
-    public String getPatronID() {return patronID;}
+    public int getPatronID() {return patronID;}
     public String getPatronFName() {return patronFName;}
     public String getPatronLName() {return patronLName;}
     public String getStreetAddress() {return patronStreetAddress;}
@@ -59,7 +56,7 @@ public class Patrons {
     public Double getOverdueFine() {return patronOverdueFine;}
 
     //Setters!
-    public void setPatronID(String patronID) {this.patronID = patronID;}
+    public void setPatronID(int patronID) {this.patronID = patronID;}
     public void setPatronFName(String patronFName) {this.patronFName = patronFName;}
     public void setPatronLName(String patronLName) {this.patronLName = patronLName;}
     public void setStreetAddress(String streetAddress) {this.patronStreetAddress = streetAddress;}
@@ -193,10 +190,11 @@ public class Patrons {
 
         while (userTryAgain.equals("y")){
             System.out.print("Enter the Patron ID you would like to remove: ");
-            String userStatedPatronID = scnr.nextLine();
+            int userStatedPatronID = scnr.nextInt();
+            scnr.nextLine(); // Used to consume the newline
 
             for (Patrons patron : patronStorage) {
-                if (patron.getPatronID().equalsIgnoreCase(userStatedPatronID)) {
+                if (patron.getPatronID() == userStatedPatronID) {
                     patronStorage.remove(patron);
                     System.out.println(LibraryPatronSystem.Text.MAGENTA + "Patron ID, " +
                             patron.getPatronID() + ", has been removed!" + LibraryPatronSystem.Text.RESET);
@@ -229,10 +227,11 @@ public class Patrons {
 
         while (userTryAgain.equals("y")){
             System.out.print("Enter the Patron ID you would like to search for: ");
-            String userStatedPatronID = scnr.nextLine();
+            int userStatedPatronID = scnr.nextInt();
+            scnr.nextLine(); // Used to consume the newline
 
             for (Patrons patron : patronStorage) {
-                if (patron.getPatronID().equalsIgnoreCase(userStatedPatronID)) {
+                if (patron.getPatronID() == userStatedPatronID) {
                     System.out.println("Patron Found!");
                     System.out.println(patron);
                     patronFound = true;
@@ -280,10 +279,11 @@ public class Patrons {
         // Lets the user continue attempting to find the patron until one is found.
         while (userTryAgain.equals("y")){
             System.out.print("Enter the Patron ID you would like to search for: ");
-            String userStatedPatronID = scnr.nextLine();
+            int userStatedPatronID = scnr.nextInt();
+            scnr.nextLine(); // Used to consume the newline
 
             for (Patrons patron : patronStorage) {
-                if (patron.getPatronID().equalsIgnoreCase(userStatedPatronID)) {
+                if (patron.getPatronID() == userStatedPatronID) {
                     System.out.println("Patron Found!");
                     System.out.println("Current Fine Amount: " + patron.getOverdueFine());
                     System.out.print("How much do you want to increase the fine amount? (Example 12.34): ");
@@ -329,10 +329,11 @@ public class Patrons {
 
         while (userTryAgain.equals("y")){
             System.out.print("Enter the Patron ID you would like to search for: ");
-            String userStatedPatronID = scnr.nextLine();
+            int userStatedPatronID = scnr.nextInt();
+            scnr.nextLine(); // Used to consume the newline
 
             for (Patrons patron : patronStorage) {
-                if (patron.getPatronID().equalsIgnoreCase(userStatedPatronID)) {
+                if (patron.getPatronID() == userStatedPatronID) {
                     System.out.println("Patron Found!");
                     System.out.println("Current Fine Amount: " + patron.getOverdueFine());
                     System.out.print("How much do you want to decrease the fine amount? (Example 12.34): ");
