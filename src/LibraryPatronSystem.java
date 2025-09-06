@@ -61,8 +61,9 @@ public class LibraryPatronSystem {
                 libraryMenuOptions(userChoice, patronStorage);
             }
             else if (userChoice >= 8 || userChoice < 0) {
-                System.out.println(Text.BRIGHT_RED + "Please enter a valid option between 0 and 7: " + Text.RESET);
+                System.out.print(Text.BRIGHT_RED + "Please enter a valid option between 0 and 7: " + Text.RESET);
                 userChoice = scnr.nextInt();
+                scnr.nextLine(); // Used to consume the newline
             }
         }
     }
